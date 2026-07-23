@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zahid Restaurant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>Zahid Restaurant</h2>
+
+<div class="cart" onclick="toggleCart()">
+🛒 Cart (<span id="cart-count">0</span>)
+</div>
+
+
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+
+
+<ul id="menu">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#food-menu">Menu</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+<div class="cart-box" id="cart-box">
+
+<h3>Your Cart</h3>
+
+<ul id="cart-items"></ul>
+
+<h4>Total: $<span id="total-price">0</span></h4>
+
+<button onclick="clearCart()">Clear Cart</button>
+
+<button onclick="checkout()">Checkout</button>
+
+</div>
+
+
+<section class="hero" id="home">
+
+<h1>Delicious Food</h1>
+
+<p>Fresh, Tasty & Made With Love</p>
+
+
+<a href="#" class="btn order-btn">Order Now</a>
+
+<a href="#" class="btn table-btn">Book a Table</a>
+
+</section>
+
+<section class="food-menu" id="food-menu">
+  
+<h2>Our Menu</h2>
+<div class="filter-buttons">
+
+<button onclick="filterFood('all')">All</button>
+
+<button onclick="filterFood('burger')">Burger</button>
+
+<button onclick="filterFood('pizza')">Pizza</button>
+
+<button onclick="filterFood('biryani')">Biryani</button>
+<button onclick="filterFood('drinks')">Drinks</button>
+
+</div>
+<div class="search-box">
+
+<span>🔍</span>
+
+<input type="text" id="search" placeholder="Search your favourite food..." onkeyup="searchFood()">
+
+</div>
+<div class="cards">
+
+ <div class="card" data-category="burger">
+
+<img src="images/burger.png" alt="Burger">
+
+<h3>Chicken Burger</h3>
+
+<p>Delicious chicken burger with fresh ingredients.</p>
+
+<h4>$5</h4>
+
+<button onclick="addToCart('Chicken Burger',5)">
+Order Now
+</button>
+
+</div>
+
+
+<div class="card" data-category="pizza">
+
+<img src="images/pizza.png" alt="Pizza">
+
+<h3>Cheese Pizza</h3>
+
+<p>Hot and tasty pizza with extra cheese.</p>
+
+<h4>$8</h4>
+
+<button onclick="addToCart('Cheese Pizza',8)">
+Order Now
+</button>
+
+</div>
+
+
+<div class="card" data-category="biryani">
+
+<img src="images/biryani.png" alt="Biryani">
+
+<h3>Chicken Biryani</h3>
+
+<p>Traditional spicy chicken biryani.</p>
+
+<h4>$6</h4>
+
+<button onclick="addToCart('Chicken Biryani',6)">
+Order Now
+</button>
+
+</div>
+
+<div class="card" data-category="drinks">
+
+<img src="images/drink.png" alt="Cold Drink">
+
+<h3>Cold Drink</h3>
+
+<p>Refreshing chilled soft drink served ice cold to complement your delicious meal.</p>
+
+<h4>$2</h4>
+
+<button onclick="addToCart('Cold Drink',2)">
+Order Now
+</button>
+
+</div>
+
+</div>
+
+
+
+</section>
+<footer>
+
+    <h3>Zahid Restaurant</h3>
+
+    <p>Delicious food made with love ❤️</p>
+
+    <div class="footer-links">
+
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+    </div>
+
+
+<div class="social-links">
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+
+    <p class="copyright">
+        © 2026 Zahid Restaurant. All Rights Reserved.
+    </p>
+
+</section>
+
+<section class="about hidden" id="about">
+
+<h2>About Us</h2>
+
+<p>
+Welcome to Zahid Restaurant! We serve fresh, delicious, and high-quality food made with love. Our goal is to provide the best taste and excellent customer service.
+</p>
+
+</section>
+
+<section class="gallery hidden" id="gallery">
+
+<h2>Food Gallery</h2>
+
+<div class="gallery-box">
+
+<img src="images/burger.png" alt="Burger">
+
+<img src="images/pizza.png" alt="Pizza">
+
+<img src="images/biryani.png" alt="Biryani">
+
+<img src="images/drink.png" alt="Drink">
+
+</div>
+
+</section>
+
+<section class="contact hidden" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📍 Kot Addu, Pakistan</p>
+
+<p>📞 +92 300 1234567</p>
+
+<p>✉️ info@zahidrestaurant.com</p>
+
+
+<form id="contact-form">
+
+<input type="text" id="name" placeholder="Your Name">
+
+<input type="email" id="email" placeholder="Your Email">
+
+<textarea id="message" placeholder="Your Message"></textarea>
+
+<button type="button" onclick="sendMessage()">Send Message</button>
+
+</form>
+
+
+</section>
+<footer>
+</footer>
+
+<button onclick="topFunction()" id="topBtn">
+⬆️
+</button>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
